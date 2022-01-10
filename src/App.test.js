@@ -1,8 +1,20 @@
-import { render, screen } from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+// 1
+test('renders a beautiful title', () => {
+  // given / when
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  // then
+  expect(screen.getByText('Bonjour Zenika !', { selector: 'h1' })).toBeInTheDocument();
+});
+
+// 4
+test('should show poke form', () => {
+  // given / when
+  render(<App />);
+
+  // then
+  expect(screen.getByText('Recherche de pokemon...')).toBeInTheDocument();
 });
